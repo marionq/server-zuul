@@ -30,3 +30,107 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+      
+# Protección de uri´s
+zuul:
+  routes:
+    api-backend-bitacora:
+      service-id: api-db-sgc
+      path: /autofin/v1/bitacora/**
+      stripPrefix: false
+      
+    api-backend-sgcadmamenu: 
+      service-id: api-db-sgc
+      path: /autofin/v1/sgcadmtmenu/**
+      stripPrefix: false
+      
+    api-backend-sgcadmaroles:
+      service-id: api-db-sgc
+      path: /autofin/v1/sgcadmaroles/**
+      stripPrefix: false
+      
+    api-backend-sgcadmapermisos:
+      service-id: api-db-sgc
+      path: /autofin/v1/sgcadmapermisos/**
+      stripPrefix: false
+      
+    api-backend-sgcadmapermisosroles:
+      service-id: api-db-sgc
+      path: /autofin/v1/sgcadmapermisosroles/**
+      stripPrefix: false
+      
+    api-backend-ldapuser:
+      service-id: api-ldap
+      path: /autofin/v1/userldap/**
+      stripPrefix: false
+      
+    api-backend-sgcadmausuario:
+      service-id: api-db-sgc
+      path: /autofin/v1/usuario/**
+      stripPrefix: false
+    
+    api-backend-userkeycloak:
+      service-id: api-keycloak
+      path: /autofin/v1/userkeycloak/**
+      stripPrefix: false
+      
+    api-backend-userdbkeycloak:
+      service-id: api-keycloak
+      path: /autofin/v1/userdbkeycloak/**
+      stripPrefix: false
+      
+    api-backend-roleskeycloak:
+      service-id: api-keycloak
+      path: /autofin/v1/roleskeycloak/**
+      stripPrefix: false
+      
+    api-backend-sesionesusuario:
+      service-id: api-keycloak
+      path: /autofin/v1/keycloak/sesionesusuario/**
+      stripPrefix: false
+    
+    api-keycloak-sync-ldap:
+      service-id: api-keycloak
+      path: /autofin/v1/keycloak/synckeycloakldap/**
+      stripPrefix: false           
+
+    api-ldap-sync-ldap:
+      service-id: api-ldap
+      path: /autofin/v1/ldap/synckeycloakldap/**
+      stripPrefix: false
+      
+    api-db-firma-documento:
+      service-id: api-db-firma
+      path: /autofin/v1/sgcfetdocumento/**
+      stripPrefix: false
+    
+    api-db-firma-c-tipo-documento:
+      service-id: api-db-firma
+      path: /autofin/v1/sgcfectipodocumento/**
+      stripPrefix: false
+      
+    api-db-firma-receptor:
+      service-id: api-db-firma
+      path: /autofin/v1/sgcfetreceptor/**
+      stripPrefix: false      
+      
+    api-efirma:
+      service-id: api-efirma
+      path: /autofin/v1/efirma/**
+      stripPrefix: false      
+       
+ # ignored-services: '*'
+ # prefix: /autofin/v1
+  sensitive-headers: Cookie, Set-Cookie
+
+#Timeout
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 10000            
