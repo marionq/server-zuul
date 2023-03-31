@@ -15,7 +15,7 @@ spring:
       failFast: true
       #name of base properties config file, before profile
       name: config-client
-      profile: ${PROFILE:serverzuullocal}
+      profile: ${PROFILE:serverzuulambientecele}
       #label: latest
       username: admin
       password: qwerty

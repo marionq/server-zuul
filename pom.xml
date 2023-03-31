@@ -11,32 +11,6 @@
         <relativePath />
     </parent>
 
-    <profiles>
-        <profile>
-            <id>uat</id>
-            <properties>
-                <appProfile>uat</appProfile>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <appProfile>dev</appProfile>
-            </properties>
-
-        </profile>
-
-        <profile>
-            <id>prod</id>
-            <properties>
-                <appProfile>prod</appProfile>
-            </properties>
-        </profile>
-    </profiles>
-
     <groupId>mx.com.autofin</groupId>
     <artifactId>server-zuul</artifactId>
     <version>0.0.1</version>
@@ -57,10 +31,12 @@
     </properties>
 
     <dependencies>
+        
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -91,7 +67,7 @@
         
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-client</artifactId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
 		 
     </dependencies>
