@@ -117,6 +117,16 @@ zuul:
     api-efirma:
       service-id: api-efirma
       path: /autofin/v1/efirma/**
+      stripPrefix: false
+      
+    api-infoconstancia:
+      service-id: api-infoconstancia
+      path: /autofin/v1/infoconstancia/**
+      stripPrefix: false
+
+    api-infoconstancia:
+      service-id: api-infocons-db-getpython
+      path: /autofin/v1/infopdf/get-insert/**
       stripPrefix: false      
        
  # ignored-services: '*'

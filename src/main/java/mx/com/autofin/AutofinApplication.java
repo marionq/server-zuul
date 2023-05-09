@@ -55,6 +55,8 @@ public class AutofinApplication extends ResourceServerConfigurerAdapter {
     private static final String API_DB_FIRMA_C_TIPO_DOCUMENTO = "/autofin/v1/sgcfectipodocumento/**";
     private static final String API_DB_FIRMA_RECEPTOR =         "/autofin/v1/sgcfetreceptor/**";
     private static final String API_EFIRMA =                    "/autofin/v1/efirma/**";
+    private static final String API_INFOCONSTANCIA =            "/autofin/v1/infoconstancia/**";
+    private static final String API_INFOCONS_DB_GETPYTHON =     "/autofin/v1/infopdf/get-insert/**";
     
 
     // Validacion de scope
@@ -108,6 +110,8 @@ public class AutofinApplication extends ResourceServerConfigurerAdapter {
                 .antMatchers(API_DB_FIRMA_C_TIPO_DOCUMENTO).access(SCOPE_SGC)
                 .antMatchers(API_DB_FIRMA_RECEPTOR).access(SCOPE_SGC)
                 .antMatchers(API_EFIRMA).access(SCOPE_SGC)
+                .antMatchers(API_INFOCONSTANCIA).access(SCOPE_SGC)
+                .antMatchers(API_INFOCONS_DB_GETPYTHON).access(SCOPE_SGC)
                 .antMatchers(SGC_KEYCLOAK).permitAll()
                 .antMatchers(ACTUATOR).permitAll()
                 .anyRequest().denyAll();
